@@ -1,0 +1,50 @@
+<html>
+<head>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['line']});
+      google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Day');
+      data.addColumn('number', 'China');
+      data.addColumn('number', 'Italy');
+      data.addColumn('number', 'United States');
+
+      data.addRows([
+        ["1/22/20",  548, 0, 1],
+        ["2/1/20",  11891, 2, 8],
+        ["2/15/20",  68413, 3, 13],
+        ["3/1/20",  79932, 1694, 74],
+        ["3/15/20",  81003, 24747, 3499],
+        ["4/1/20",   82361, 110574,  213242],
+        ["4/15/20",   83356, 165155,  636350],
+        ["5/1/20",  83959, 207428, 1103461]
+      ]);
+
+      var options = {
+        chart: {
+          title: 'Total Number of Confirmed Cases of Covid-19 Per Country',
+          subtitle: 'China, Italy and the U.S.'
+        },
+        width: 900,
+        height: 500,
+        axes: {
+          x: {
+            0: {side: 'top'}
+          }
+        }
+      };
+
+      var chart = new google.charts.Line(document.getElementById('line_top_x'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+  </script>
+</head>
+<body>
+  <div id="line_top_x"></div>
+</body>
+</html>
